@@ -1,0 +1,108 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Modello A <br>Servizio Protezione Civile Marche
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="medium">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-grid id="TabellaValori">
+      <ion-row>
+        <ion-col>
+          <ion-input type="text" placeholder="Inserisci" id="AddLuogoEvento">Luogo Evento</ion-input>
+        </ion-col>
+      </ion-row>
+      <hr>
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Inserisci" id="AddTipoEvento">Tipo di Evento</ion-input>
+        </ion-col>
+      </ion-row>
+      <hr>
+      <ion-row>
+        <ion-col>
+          <ion-input placeholder="Inserisci" id="AddDataEvento">Data Arrivo</ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-input placeholder="Inserisci" id="AddOraEvento">Ora arrivo</ion-input>
+        </ion-col>
+      </ion-row>
+      <hr>
+      <ion-row>
+        <ion-col>
+          <ion-text>
+            Volontari :
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="form-group">
+            <ion-text>Id voloweb :</ion-text>
+            <input type="text" class="form-control" id="volowebVolontari">
+            <ion-fab>
+              <ion-fab-button id="AddVolontario">
+                <ion-icon name="add"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+          </div>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col>
+          <ion-list id="ElencoVolontari">
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <hr>
+      <ion-row>
+        <ion-col>
+          <ion-text>
+            Mezzi impiegati :
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="form-group">
+            <ion-text>Targa mezzo :</ion-text>
+            <input type="text" class="form-control" id="targaMezzo">
+            <ion-fab>
+              <ion-fab-button id="AddMezzo">
+                <ion-icon name="add"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-list id="ElencoMezzi">
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <hr>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Note</ion-label>
+            <ion-textarea id="AddNote" placeholder='Inserisci note'></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-button  id="creaModelloA" (click)='creaModelloA()'>Crea Modello A</ion-button>
+
+  </div>
+</ion-content>
