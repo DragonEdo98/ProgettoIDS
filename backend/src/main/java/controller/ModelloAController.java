@@ -1,4 +1,4 @@
-package com.prova.demo;
+package controller;
 
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,12 +8,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
+import modello.ModelloA;
+
+import repositoryInterface.ModelloARepository;
+
+
 @RestController
-public class ControllerModelloA {
+public class ModelloAController {
 
 	private final ModelloARepository modelloARepository;
 
-	public ControllerModelloA (ModelloARepository repository){
+
+	public ModelloAController (ModelloARepository repository){
 		modelloARepository = repository ;
 	}
 	
@@ -31,4 +37,7 @@ public class ControllerModelloA {
 	public ModelloA modelloSingolo(@PathVariable(name = "codiceID", required = true) Long codiceId) {
 		return modelloARepository.findById(codiceId).orElseThrow();
 	}
+	
+	
+	
 }

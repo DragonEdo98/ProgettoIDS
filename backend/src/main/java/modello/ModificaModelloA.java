@@ -1,4 +1,4 @@
-package com.prova.demo;
+package modello;
 
 public class ModificaModelloA {
 
