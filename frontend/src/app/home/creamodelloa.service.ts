@@ -10,7 +10,7 @@ export class CreamodelloaService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private provaUrl = 'http://localhost:8080/menu';
+  private provaUrl = 'http://localhost:8100/menu';
 
   public creaModelloA(tipoEvento: string, luogoEvento: string, firmaResponsabileOrg: string): Observable<ModelloA> {
     const modelloA: ModelloA = {
@@ -18,7 +18,7 @@ export class CreamodelloaService {
       luogoEvento: luogoEvento,
       firmaResponsabileOrg: firmaResponsabileOrg
     }
-
+    
     return this.httpClient.post<ModelloA>(this.provaUrl, modelloA);
   }
 }

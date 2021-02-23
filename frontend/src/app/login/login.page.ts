@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginServiceService } from '../login-service.service';
+import { User } from '../user';
+
 
 @Component({
   selector: 'app-login',
@@ -9,32 +11,38 @@ import { LoginServiceService } from '../login-service.service';
 })
 export class LoginPage implements OnInit {
 
-
-  user = {
-    voloWeb : '',
-    password : ''
-  }
-
   constructor(private router : Router, private loginService : LoginServiceService) { }
 
   ngOnInit() {
   }
 
-  login(){
-    if(this.user.voloWeb != null && this.user.password != null){
-      this.router.navigate(['/menu']);
-    }else{
-      alert('login failed!');
-
-    }
+  login() {
+    var codiceVoloWeb = parseInt((document.getElementById("usernameAccesso") as HTMLInputElement).value);
+    var password = (document.getElementById("passAccesso") as HTMLInputElement).value;
+    this.loginService.login(new User(codiceVoloWeb, password)).subscribe(
+      data => {
+        console.log("Tutto bene!");
+        return this.router.navigate(['/menu'])
+      },
+      error => {
+        console.log(error);
+        return this.router.navigate(['/login'])
+      }
+    )
   }
 
-  prova(){
-    this.loginService.prova().subscribe(data => {
-      alert(data.codiceId);
-    });
+  adminLogin() {
+    var codiceVoloWeb = parseInt((document.getElementById("usernameAccesso") as HTMLInputElement).value);
+    var password = (document.getElementById("passAccesso") as HTMLInputElement).value;
+    this.loginService.adminLogin(new User(codiceVoloWeb, password)).subscribe(
+      data => {
+        console.log("Tutto bene!" + data);
+        if(data) { 
+          return this.router.navigate(['/schermata-admin']);
+        } else {
+          return this.router.navigate(['/login']); 
+        }
+      }    
+    )
   }
 }
-  
-
-

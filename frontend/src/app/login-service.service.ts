@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ModelloA } from './modelloA';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root',
@@ -10,9 +10,14 @@ export class LoginServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private provaUrl = `http://localhost:8080/menu/1`;
+  private accessoNormaleUrl = `http://localhost:8100/login`;
+  private accessoAdminUrl = `http://localhost:8100/accessoadmin`;
 
-  prova() : Observable<ModelloA> {
-    return this.httpClient.get<ModelloA>(this.provaUrl);
+  login(user: User) : Observable<any> {
+    return this.httpClient.post<User>(this.accessoNormaleUrl, user);
+  }
+
+  adminLogin(user: User) : Observable<any> {
+    return this.httpClient.post<User>(this.accessoAdminUrl, user);
   }
 }

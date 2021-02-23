@@ -14,6 +14,6 @@ export class MenuPage implements OnInit {
   }
 
   nuovoModelloA(){
-    this.router.navigate(['/home']);
+    return this.router.navigate(['/home']);
   }
 }

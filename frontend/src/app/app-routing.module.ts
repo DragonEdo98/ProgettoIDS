@@ -19,6 +19,15 @@ const routes: Routes = [
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
+
+  {
+    path: 'schermata-admin',
+    loadChildren: () => import('./schermata-admin/schermata-admin.module').then( m => m.SchermataAdminPageModule)
+  },
+  {
+    path: 'pagina-registrazione-org',
+    loadChildren: () => import('./pagina-registrazione-org/pagina-registrazione-org.module').then( m => m.PaginaRegistrazioneOrgPageModule)
+  },
 ];
 
 @NgModule({
